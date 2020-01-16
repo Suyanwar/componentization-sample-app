@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':component'
 rootProject.name='ComponentizationSample'
