@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llcPhoneNumberView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
@@ -11,8 +11,8 @@
         android:id="@+id/actvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        tools:text="Title" />
+        android:text="@string/tv_title"
+        android:textSize="16sp" />
 
     <com.tunaikumobile.component.atom.PrefixEditText
         android:id="@+id/acetContent"
@@ -21,8 +21,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/cs_view_edittext_selected"
-        android:tag="+62"
+        android:hint="@string/tv_content"
+        android:inputType="number"
         android:padding="8dp"
-        tools:hint="Content" />
+        android:tag="+62 " />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
