@@ -1,29 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/llcPhoneNumberView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llcPhoneNumberComponent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorWhite"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/actvTitle"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/sflPhoneNumberView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_title"
-        android:textSize="16sp" />
+        android:visibility="gone"
+        app:shimmer_auto_start="true">
 
-    <com.tunaikumobile.component.atom.PrefixEditText
-        android:id="@+id/acetContent"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardBackgroundColor="#dddddd"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llcPhoneNumberView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/cs_view_edittext_selected"
-        android:hint="@string/tv_content"
-        android:inputType="number"
-        android:padding="8dp"
-        android:tag="+62 " />
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_title"
+            android:textSize="16sp" />
+
+        <com.tunaikumobile.component.atom.PrefixEditText
+            android:id="@+id/acetContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/cs_view_edittext_selected"
+            android:hint="@string/tv_content"
+            android:inputType="number"
+            android:padding="8dp"
+            android:tag="+62 " />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

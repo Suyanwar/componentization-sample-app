@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.tunaikumobile.component.R
 import com.tunaikumobile.component.base.UIView
-import com.tunaikumobile.component.event.UserInteractionEvent
 
 
 /**
@@ -14,19 +13,22 @@ import com.tunaikumobile.component.event.UserInteractionEvent
  * Android Engineer
  *
  **/
-class PhoneNumberView(container: ViewGroup) : UIView<UserInteractionEvent>(container) {
+class PhoneNumberView(container: ViewGroup) : UIView(container) {
 
-    private val view : View = LayoutInflater.from(container.context).inflate(R.layout.component_phone_number, container, true)
-        .findViewById(R.id.llcPhoneNumberView)
+    private val inflater: View = LayoutInflater.from(container.context).inflate(R.layout.component_phone_number, container, true)
 
-    override val containerId: Int = view.id
+    private val phoneShimmerLayout : View = inflater.findViewById(R.id.sflPhoneNumberView)
+    private val phoneViewLayout : View = inflater.findViewById(R.id.llcPhoneNumberView)
 
-    override fun show() {
-        view.visibility = View.VISIBLE
+    override val containerId: Int = inflater.id
+
+    override fun showLoading() {
+        phoneViewLayout.visibility = View.GONE
+        phoneShimmerLayout.visibility = View.VISIBLE
     }
 
-    override fun hide() {
-        view.visibility = View.GONE
+    override fun showContent() {
+        phoneShimmerLayout.visibility = View.GONE
+        phoneViewLayout.visibility = View.VISIBLE
     }
-
 }

@@ -1,4 +1,4 @@
-package com.tunaikumobile.component.molecule.phonenumbercomponent
+package com.tunaikumobile.component.molecule.instantloancomponent
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
@@ -7,16 +7,10 @@ import com.tunaikumobile.component.base.UIComponent
 import com.tunaikumobile.component.event.ScreenStateEvent
 import io.reactivex.Observable
 
-
-/**
- *
- * Created by Suyanwar on 2020-01-16.
- * Android Engineer
- *
- **/
 @SuppressLint("CheckResult")
-class PhoneNumberComponent(container: ViewGroup, bus: EventBusFactory) :
-    UIComponent<Unit> {
+class InstantLoanComponent(container: ViewGroup, bus: EventBusFactory) : UIComponent<Unit> {
+
+    private val uiView = initView(container)
 
     override fun getContainerId(): Int {
         return uiView.containerId
@@ -26,10 +20,8 @@ class PhoneNumberComponent(container: ViewGroup, bus: EventBusFactory) :
         return Observable.empty()
     }
 
-    private val uiView = initView(container)
-
-    private fun initView(container: ViewGroup): PhoneNumberView {
-        return PhoneNumberView(container)
+    private fun initView(container: ViewGroup): InstantLoanView {
+        return InstantLoanView(container)
     }
 
     init {
@@ -44,4 +36,5 @@ class PhoneNumberComponent(container: ViewGroup, bus: EventBusFactory) :
             }
         }
     }
+
 }

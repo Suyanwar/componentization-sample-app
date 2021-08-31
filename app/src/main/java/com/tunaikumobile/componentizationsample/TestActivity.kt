@@ -7,6 +7,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import com.tunaikumobile.component.base.EventBusFactory
 import com.tunaikumobile.component.event.ScreenStateEvent
+import com.tunaikumobile.component.molecule.instantloancomponent.InstantLoanComponent
 import com.tunaikumobile.component.molecule.phonenumbercomponent.PhoneNumberComponent
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -32,7 +33,7 @@ class TestActivity : AppCompatActivity(), LifecycleOwner {
 
         setContentView(R.layout.activity_test)
         PhoneNumberComponent(findViewById(R.id.firstView), EventBusFactory.get(this))
-        PhoneNumberComponent(findViewById(R.id.secondView), EventBusFactory.get(this))
+        InstantLoanComponent(findViewById(R.id.secondView), EventBusFactory.get(this))
         PhoneNumberComponent(findViewById(R.id.thirdView), EventBusFactory.get(this))
         Observable.just(Any())
             .observeOn(AndroidSchedulers.mainThread())
@@ -40,17 +41,23 @@ class TestActivity : AppCompatActivity(), LifecycleOwner {
                 EventBusFactory.get(this)
                     .emit(ScreenStateEvent::class.java, ScreenStateEvent.Loading)
             }
-            .delay(2, TimeUnit.SECONDS)
+            .delay(5, TimeUnit.SECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .doOnNext {
                 EventBusFactory.get(this)
                     .emit(ScreenStateEvent::class.java, ScreenStateEvent.Loaded)
             }
-            .delay(2, TimeUnit.SECONDS)
+            .delay(5, TimeUnit.SECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .doOnNext {
                 EventBusFactory.get(this)
                     .emit(ScreenStateEvent::class.java, ScreenStateEvent.Loading)
+            }
+            .delay(5, TimeUnit.SECONDS)
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnNext {
+                EventBusFactory.get(this)
+                    .emit(ScreenStateEvent::class.java, ScreenStateEvent.Loaded)
             }
             .subscribe()
     }

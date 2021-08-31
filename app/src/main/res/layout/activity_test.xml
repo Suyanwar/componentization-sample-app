@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".TestActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -15,11 +16,13 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/secondView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/thirdView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

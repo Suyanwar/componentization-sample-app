@@ -10,12 +10,12 @@ import androidx.annotation.IdRes
  * Android Engineer
  *
  **/
-abstract class UIView<T>(val container: ViewGroup) {
+abstract class UIView(val container: ViewGroup) {
 
     @get:IdRes
     abstract val containerId: Int
 
-    abstract fun show()
+    abstract fun showLoading()
 
-    abstract fun hide()
+    abstract fun showContent()
 }
